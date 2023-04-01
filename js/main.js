@@ -86,8 +86,9 @@ let productos = [{
         card.innerHTML += `
         <img src="${x.image}" class="card-img-top" alt="${x.title}">
         <div class="card-body">
-          <h5 class="card-title text-center">${x.title}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title text-center">${x.title}</h5><br>
+          <h6 class="card-subtitle text-bold">${x.category}</h6><br>
+          <p class="card-text">${x.description}</p>
           <a href="#" class="btn btn-primary">Más info</a>
           </div>
           </div>
