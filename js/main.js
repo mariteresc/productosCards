@@ -80,17 +80,67 @@ let productos = [{
     {"id":19,"title":"Opna Women's Short Sleeve Moisture","price":7.95,"description":"100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort","category":"women's clothing","image":"https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg","rating":{"rate":4.5,"count":146}},
     {"id":20,"title":"DANVOUY Womens T Shirt Casual Cotton Short","price":12.99,"description":"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.","category":"women's clothing","image":"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg","rating":{"rate":3.6,"count":145}}];
 
+    function getProducto(){
+        let promesa = fetch("https://fakestoreapi.com/products", {
+          method: "GET"
+        });
+      
+      promesa.then((response) => {
+        response.json().then( (prods)=> {
+          console.log("prods=>json()");
+          console.log(prods);
+        }
+        )
+        .catch((err)=> {
+          console.error("Error en el formato de la respuesta:" + err.message);
+        });
+      }
+      )
+      .catch((error)=> {
+        console.error("Error en la respuesta" + error.message);
+      });
+      }
+      
+      getProducto();
+
+
     let card = document.getElementById("card-template");
 
-    productos.map((x) =>{
+    
+    productos.map((x)=>{
         card.innerHTML += `
+        <div class="card-container" style="width: 18rem;">
         <img src="${x.image}" class="card-img-top" alt="${x.title}">
-        <div class="card-body">
+        <div class="card-body ">
           <h5 class="card-title text-center">${x.title}</h5><br>
           <h6 class="card-subtitle text-bold">${x.category}</h6><br>
           <p class="card-text">${x.description}</p>
-          <a href="#" class="btn btn-primary">Más info</a>
+          <a href=" " class="btn btn-primary">Más info</a>
           </div>
           </div>
           `;
     });
+    
+
+  
+
+
+
+
+
+
+//     const getProducto = () => {
+
+//       return new Promise((resolve, reject) => {
+//           if (productos == null) {
+//               reject(new Error("Producto no existe"))
+//           }
+//           setTimeout(() => { resolve (productos) }, 2000);
+//       });
+  
+//   };
+  
+  
+//   getProducto()
+//       .then((productos)=> console.log(productos))
+//       .catch((err)=> console.log(err.message));

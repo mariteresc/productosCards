@@ -78,12 +78,17 @@ productos.forEach((productos) => {
   const category = document.createElement("h4")
   category.textContent = productos.category;
 
+  const boton = document.createElement("button");
+  boton.innerText="Más info";
+  boton.classList.add("btn","btn-primary");
+
 
 
   card.appendChild(img);
   card.appendChild(title);
   card.appendChild(category);
   card.appendChild(description);
+  card.appendChild(boton);
  
   
   cardsContainer.appendChild(card);
@@ -100,6 +105,11 @@ const getProducto = () => {
 
 };
 
+boton.addEventListener("click", () =>{
+
+
 getProducto()
-    .then((prod)=> console.log(prod))
+    .then((productos)=> console.log(productos))
     .catch((err)=> console.log(err.message));
+
+});
